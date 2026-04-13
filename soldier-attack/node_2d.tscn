@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://chtq3obdv5xob" path="res://Knight 2D Pixel Art/Sprites/without_outline/IDLE.png" id="7_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://cmx770t7ucp5d" path="res://Knight 2D Pixel Art/Sprites/without_outline/JUMP.png" id="8_d2bti"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_6uidu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu7as"]
+size = Vector2(3.6068358, 1.3673002)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5nu"]
 size = Vector2(30.75, 53)
 
@@ -241,7 +246,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ei405")
 }],
-"loop": true,
+"loop": false,
 "name": &"Ataque",
 "speed": 10.0
 }, {
@@ -414,12 +419,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="QuadMesh" id="QuadMesh_6uidu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu7as"]
-size = Vector2(0.9978968, 1.0266402)
-
 [node name="Node2D" type="Node2D" unique_id=116918146]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=451587340]
+position = Vector2(-6.1035156e-05, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1237707668]
+position = Vector2(515.00006, 460.99997)
+scale = Vector2(968, 59.999958)
+mesh = SubResource("QuadMesh_6uidu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=751928021]
+position = Vector2(515.78235, 460.8939)
+scale = Vector2(268.5, 45.49999)
+shape = SubResource("RectangleShape2D_qu7as")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=104943141]
 script = ExtResource("1_rj586")
@@ -432,15 +445,5 @@ shape = SubResource("RectangleShape2D_ta5nu")
 position = Vector2(601.00006, 208.00002)
 scale = Vector2(1.5520836, 1.7678573)
 sprite_frames = SubResource("SpriteFrames_uqk8q")
-animation = &"Quieto"
+animation = &"Ataque"
 autoplay = "Quieto"
-frame_progress = 0.20806322
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1237707668]
-position = Vector2(580.75, 311.25)
-scale = Vector2(268.5, 45.49999)
-mesh = SubResource("QuadMesh_6uidu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D" unique_id=751928021]
-position = Vector2(0.0010511875, -0.013320446)
-shape = SubResource("RectangleShape2D_qu7as")
