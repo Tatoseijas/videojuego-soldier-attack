@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c6aengt4eak4t"]
 
+[ext_resource type="Texture2D" uid="uid://dlwc0nm3spfah" path="res://ChatGPT Image 20 abr 2026, 16_41_24.png" id="1_4d7sh"]
 [ext_resource type="Script" uid="uid://bhbpllky6exwb" path="res://character_body_2d.gd" id="1_rj586"]
 [ext_resource type="Texture2D" uid="uid://cfbho8elmqw3k" path="res://Knight 2D Pixel Art/Sprites/without_outline/ATTACK 1.png" id="2_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://ryue1cbec0cu" path="res://Knight 2D Pixel Art/Sprites/without_outline/WALK.png" id="3_ir8iy"]
@@ -9,10 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://chtq3obdv5xob" path="res://Knight 2D Pixel Art/Sprites/without_outline/IDLE.png" id="7_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://cmx770t7ucp5d" path="res://Knight 2D Pixel Art/Sprites/without_outline/JUMP.png" id="8_d2bti"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_6uidu"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu7as"]
-size = Vector2(3.6068358, 1.3673002)
+size = Vector2(4.757674, 1.3673002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5nu"]
 size = Vector2(30.75, 53)
@@ -419,18 +418,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d7sh"]
+size = Vector2(196.5, 22.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ir8iy"]
+a = Vector2(27, 73)
+b = Vector2(-24, 102)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hqns4"]
+a = Vector2(34, 33)
+b = Vector2(-2, 9)
+
 [node name="Node2D" type="Node2D" unique_id=116918146]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=451587340]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1318619430]
+position = Vector2(641, 358.5)
+scale = Vector2(0.83203125, 0.70214844)
+texture = ExtResource("1_4d7sh")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2043008706]
 position = Vector2(-6.1035156e-05, 0)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1237707668]
-position = Vector2(515.00006, 460.99997)
-scale = Vector2(968, 59.999958)
-mesh = SubResource("QuadMesh_6uidu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=751928021]
-position = Vector2(515.78235, 460.8939)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2089167407]
+position = Vector2(638, 576)
 scale = Vector2(268.5, 45.49999)
 shape = SubResource("RectangleShape2D_qu7as")
 
@@ -447,3 +457,17 @@ scale = Vector2(1.5520836, 1.7678573)
 sprite_frames = SubResource("SpriteFrames_uqk8q")
 animation = &"Ataque"
 autoplay = "Quieto"
+
+[node name="escalera" type="StaticBody2D" parent="." unique_id=1054165971]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="escalera" unique_id=1927588468]
+position = Vector2(366.75, 534.25)
+shape = SubResource("RectangleShape2D_4d7sh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="escalera" unique_id=1719153811]
+position = Vector2(237, 450)
+shape = SubResource("SegmentShape2D_ir8iy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="escalera" unique_id=543005178]
+position = Vector2(472, 514)
+shape = SubResource("SegmentShape2D_hqns4")

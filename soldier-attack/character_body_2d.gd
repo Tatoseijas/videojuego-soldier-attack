@@ -13,33 +13,29 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_just_pressed("atacar"):
-		print("atacando!!")
-	
-	if Input.is_action_pressed("defender"):
-		print("defendiendo")
-	
 	var velocidad_actual=velocidad_caminando
 	if Input.is_action_pressed("correr"):
 		velocidad_actual=velocidad_corriendo
 	
 	var direction := Input.get_axis("mover_izq", "mover_der")
-
+	
 	if direction:
 		velocity.x=direction * velocidad_actual
-		if direction<0:
-			animacion.flip_h=true
-		elif direction>0:
-			animacion.flip_h=false
+	if direction<0:
+		animacion.flip_h=true
+	elif direction>0:
+		animacion.flip_h=false
 	else:
 		velocity.x=move_toward(velocity.x, 0, velocidad_actual)
 	
-	if Input.is_action_just_pressed("atacar"):
-		animacion.play("Ataque")
-	elif Input.is_action_pressed("defender"):
+	var esta_atacando=animacion.animation=="Ataque" and animacion.is_playing()
+	
+	if Input.is_action_pressed("defender"):
 		animacion.play("Defend")
 		velocity.x=0
-	elif not is_on_floor():
+	elif Input.is_action_just_pressed("atacar"):
+		animacion.play("Ataque")
+	elif not is_on_floor() and not esta_atacando:
 		animacion.play("Salto")
 	
 	elif direction != 0:
