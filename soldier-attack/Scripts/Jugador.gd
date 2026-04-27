@@ -86,8 +86,10 @@ func corazones_restar(cantidad):
 	if corazones <= 0:
 		morir()
 func morir():
+	if esta_muerto:
+		return
 	esta_muerto=true
 	velocity.x =0
 	animacion.play("Muerte")
 	await get_tree().create_timer(2.5).timeout
-	get_tree().change_scene_to_file("res://moriste.tscn")
+	get_tree().change_scene_to_file("res://Escenas/moriste.tscn")

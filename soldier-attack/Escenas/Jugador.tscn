@@ -372,7 +372,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0xscd")
 }],
-"loop": true,
+"loop": false,
 "name": &"Muerte",
 "speed": 5.0
 }, {
@@ -444,7 +444,7 @@ shape = SubResource("RectangleShape2D_ta5nu")
 position = Vector2(113.25, 341.625)
 scale = Vector2(2.005208, 2.3005955)
 sprite_frames = SubResource("SpriteFrames_uqk8q")
-animation = &"Quieto"
+animation = &"Muerte"
 autoplay = "Quieto"
 
 [node name="HitboxEspada" type="Area2D" parent="." unique_id=27107799]
