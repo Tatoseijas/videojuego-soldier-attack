@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://co0fyh86jchg8"]
+
+[ext_resource type="Script" uid="uid://bjwanb4ltvvwd" path="res://Scripts/moriste.gd" id="1_adcnd"]
+[ext_resource type="Texture2D" uid="uid://cub4nvi1iyr4f" path="res://assets_imagenes/Moriste.png" id="2_jv1ji"]
+
+[node name="Moriste" type="Control" unique_id=5704057]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_adcnd")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=716983249]
+layout_mode = 0
+offset_right = 1279.0
+offset_bottom = 718.0
+texture = ExtResource("2_jv1ji")
+expand_mode = 1
+
+[node name="reiniciar" type="Button" parent="." unique_id=1257782703]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 476.0
+offset_right = 619.0
+offset_bottom = 595.0
+flat = true
+
+[node name="salir" type="Button" parent="." unique_id=1377816620]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 475.0
+offset_right = 1031.0
+offset_bottom = 595.0
+flat = true
+
+[connection signal="pressed" from="reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

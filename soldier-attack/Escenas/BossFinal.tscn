@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c6aengt4eak4t"]
+
+[ext_resource type="Texture2D" uid="uid://b1h15rdqo3yew" path="res://assets_imagenes/FondoBossFinal.png" id="1_ssdsh"]
+[ext_resource type="Script" uid="uid://cl0c0djy20uvy" path="res://Scripts/boss_final.gd" id="1_xwwfs"]
+[ext_resource type="PackedScene" uid="uid://dkd4kkwyn5gtf" path="res://Escenas/Jugador.tscn" id="2_eeo38"]
+[ext_resource type="PackedScene" uid="uid://c6jm8mpjvq4eb" path="res://Escenas/Troll.tscn" id="3_2estv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu7as"]
+size = Vector2(1.1820655, 0.4835172)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwwfs"]
+size = Vector2(216, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4st5"]
+size = Vector2(282, 69)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_eeo38"]
+b = Vector2(0, 545)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s4st5"]
+b = Vector2(1, 158)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vrp51"]
+b = Vector2(158, 158)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y070x"]
+size = Vector2(326.5, 30)
+
+[node name="Jefe final" type="Node2D" unique_id=116918146]
+script = ExtResource("1_xwwfs")
+
+[node name="FondoBossFinal" type="Sprite2D" parent="." unique_id=1349305937]
+position = Vector2(640.5, 359.5)
+scale = Vector2(0.77609223, 0.7536688)
+texture = ExtResource("1_ssdsh")
+
+[node name="Piso" type="StaticBody2D" parent="." unique_id=2043008706]
+position = Vector2(-6.1035156e-05, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso" unique_id=2089167407]
+position = Vector2(205.30777, 509)
+scale = Vector2(268.5, 45.49999)
+shape = SubResource("RectangleShape2D_qu7as")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Piso" unique_id=938826389]
+position = Vector2(641.00006, 508)
+shape = SubResource("RectangleShape2D_xwwfs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Piso" unique_id=1567608889]
+position = Vector2(881.00006, 461.5)
+shape = SubResource("RectangleShape2D_s4st5")
+
+[node name="Paredes" type="StaticBody2D" parent="." unique_id=1815744979]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes" unique_id=1207443236]
+shape = SubResource("SegmentShape2D_eeo38")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paredes" unique_id=1469759798]
+position = Vector2(1280, 0)
+shape = SubResource("SegmentShape2D_eeo38")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Paredes" unique_id=568369064]
+position = Vector2(360, 526)
+shape = SubResource("SegmentShape2D_s4st5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Paredes" unique_id=733067619]
+position = Vector2(534, 530)
+shape = SubResource("SegmentShape2D_vrp51")
+
+[node name="Jugador" parent="." unique_id=1723205094 instance=ExtResource("2_eeo38")]
+position = Vector2(-1, 110)
+
+[node name="Troll" parent="." unique_id=1009968784 instance=ExtResource("3_2estv")]
+
+[node name="ZonaMuerte" type="Area2D" parent="." unique_id=547609953]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaMuerte" unique_id=1169298003]
+position = Vector2(523.75, 701)
+shape = SubResource("RectangleShape2D_y070x")
+
+[connection signal="body_entered" from="ZonaMuerte" to="." method="_on_zona_muerte_body_entered"]

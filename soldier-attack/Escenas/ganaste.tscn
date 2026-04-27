@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c3yr4ddq84sk0"]
+
+[ext_resource type="Script" uid="uid://bbb3suwugd20l" path="res://ganaste.gd" id="1_y31e3"]
+[ext_resource type="Texture2D" uid="uid://blrvpkui26lbi" path="res://assets_imagenes/Ganaste.png" id="2_pyce0"]
+
+[node name="Ganaste" type="Control" unique_id=673347947]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y31e3")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=69850067]
+layout_mode = 0
+offset_right = 1279.0
+offset_bottom = 718.0
+texture = ExtResource("2_pyce0")
+expand_mode = 1
+
+[node name="salir" type="Button" parent="." unique_id=1621310150]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 592.0
+offset_right = 774.0
+offset_bottom = 677.0
+flat = true
+
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

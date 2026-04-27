@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://diq26g5amy38k"]
+
+[ext_resource type="Texture2D" uid="uid://dlwc0nm3spfah" path="res://assets_imagenes/FondoVideojuego.png" id="1_scumo"]
+[ext_resource type="PackedScene" uid="uid://dkd4kkwyn5gtf" path="res://Escenas/Jugador.tscn" id="2_gxtce"]
+[ext_resource type="PackedScene" uid="uid://bq4m03xrqfrjm" path="res://Escenas/goblin_joven.tscn" id="3_vfcxm"]
+[ext_resource type="Script" uid="uid://da8eip2nvhlkp" path="res://Scripts/portal.gd" id="4_6mbtr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scumo"]
+size = Vector2(4.757674, 0.17815602)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxtce"]
+size = Vector2(196.5, 22.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vfcxm"]
+a = Vector2(27, 73)
+b = Vector2(-24, 102)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6mbtr"]
+a = Vector2(34, 33)
+b = Vector2(-2, 9)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cq0xi"]
+b = Vector2(0, 545)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vfcxm"]
+radius = 39.0
+height = 110.0
+
+[node name="PrimerRival" type="Node2D" unique_id=1523647336]
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1481757789]
+position = Vector2(641, 358.5)
+scale = Vector2(0.83203125, 0.70214844)
+texture = ExtResource("1_scumo")
+
+[node name="Piso" type="StaticBody2D" parent="." unique_id=327063788]
+position = Vector2(-6.1035156e-05, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso" unique_id=1037048213]
+position = Vector2(638, 548.94696)
+scale = Vector2(268.5, 45.49999)
+shape = SubResource("RectangleShape2D_scumo")
+
+[node name="escalera" type="StaticBody2D" parent="." unique_id=986365917]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="escalera" unique_id=710971903]
+position = Vector2(366.75, 534.25)
+shape = SubResource("RectangleShape2D_gxtce")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="escalera" unique_id=1653780743]
+position = Vector2(237, 450)
+shape = SubResource("SegmentShape2D_vfcxm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="escalera" unique_id=2004909945]
+position = Vector2(472, 514)
+shape = SubResource("SegmentShape2D_6mbtr")
+
+[node name="Paredes" type="StaticBody2D" parent="." unique_id=637271834]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes" unique_id=374406149]
+shape = SubResource("SegmentShape2D_cq0xi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paredes" unique_id=1488922001]
+position = Vector2(1280, 0)
+shape = SubResource("SegmentShape2D_cq0xi")
+
+[node name="Jugador" parent="." unique_id=1723205094 instance=ExtResource("2_gxtce")]
+
+[node name="GoblinJoven" parent="." unique_id=1507232050 instance=ExtResource("3_vfcxm")]
+position = Vector2(862, 403)
+
+[node name="Portal" type="Area2D" parent="." unique_id=937878902]
+script = ExtResource("4_6mbtr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=2015545298]
+position = Vector2(979, 497)
+shape = SubResource("CapsuleShape2D_vfcxm")
+
+[connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
