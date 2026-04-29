@@ -27,3 +27,10 @@ Para este proyecto me apoyé en la documentación oficial y en los tutoriales de
     * [Godot Forum](https://forum.godotengine.org/)
 4.  **Arte y Assets:**
     * [CraftPix.net - Free 2D Game Assets](https://craftpix.net/freebies/)
+
+## 🏁 Conclusión y Feedback del Proyecto
+El resultado final del juego es muy satisfactorio en cuanto a estética y fluidez, logrando un ambiente visual muy cuidado. Sin embargo, como parte del proceso de aprendizaje, identifico los siguientes puntos a mejorar:
+
+**Dificultad y Extensión:** El juego quedó corto y con una curva de dificultad muy baja, resultando bastante fácil de completar para un jugador promedio.
+
+**Variedad de Enemigos:** Mi intención original era incluir un bestiario más amplio con diferentes tipos de ataques y movimientos. Debido a la complejidad técnica que implicaba programar comportamientos de IA más avanzados, preferí priorizar la estabilidad de las mecánicas base (movimiento, ataque y colisiones) para asegurar que el juego funcionara correctamente de principio a fin.
